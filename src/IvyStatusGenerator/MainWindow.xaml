@@ -1,0 +1,31 @@
+﻿<Window x:Class="Invary.IvyStatusGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Invary.IvyStatusGenerator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid Name="mainDataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick" Margin="0,0,0,35">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding strName}" Width="100" IsReadOnly="True" />
+                <DataGridTextColumn Header="Ver" Binding="{Binding strVer}" Width="100" IsReadOnly="True" />
+                <DataGridTextColumn Header="Guid" Binding="{Binding strGuid}" Width="100" IsReadOnly="True" />
+                <DataGridTextColumn Header="DownURL" Binding="{Binding strDownloadURL}" Width="100" IsReadOnly="True" />
+                <DataGridTextColumn Header="Date" Binding="{Binding dtDate}" Width="100" IsReadOnly="True" />
+                <DataGridTextColumn Header="UTC" Binding="{Binding dtUTC}" Width="100" IsReadOnly="True" />
+            </DataGrid.Columns>
+
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Add" Click="Menu_OnAdd"/>
+                    <MenuItem Header="Remove" Click="Menu_OnRemove"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+
+        </DataGrid>
+        <Button Content="Export" Click="OnExport" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75"/>
+
+    </Grid>
+</Window>
